@@ -54,12 +54,12 @@ body{
     text-decoration: line-through;
     color: rgba(0, 0, 0, 0.3);
 }
-#box .control {
+#box .controllers {
     width: 60%;
     margin: auto;
 }
 
-#box .control #input{
+#box .controllers #input{
     width: 100%;
     height: 30px;
     font-size: 20px;
@@ -69,12 +69,12 @@ body{
     border: 2px solid #b5c5dd;
     border-radius: 10px;
 }
-/* #box .control #input:focus {
+/* #box .controllers #input:focus {
     outline: 0;
 
 } */
 
-#box .control button{
+#box .controllers button{
     width: 100%;
     background: white;
     border: none;
@@ -84,18 +84,18 @@ body{
     color: white;
 
 }
-/* #box .control button:focus{
+/* #box .controllers button:focus{
     outline: 0;
 } */
 
-#box .control button:hover{
+#box .controllers button:hover{
     transform: scale(1.05);
 }
-#box .control #add{
+#box .controllers #add{
     background-color: #2980b9;
     border-radius: 10px;
 }
-#box .control #remove {
+#box .controllers #remove {
     background-color: #c0392b;
     border-radius: 10px;
 
