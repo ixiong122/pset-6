@@ -69,10 +69,10 @@ body{
     border: 2px solid #b5c5dd;
     border-radius: 10px;
 }
-#box .control #input:focus {
+/* #box .control #input:focus {
     outline: 0;
 
-}
+} */
 
 #box .control button{
     width: 100%;
@@ -84,9 +84,9 @@ body{
     color: white;
 
 }
-#box .control button:focus{
+/* #box .control button:focus{
     outline: 0;
-}
+} */
 
 #box .control button:hover{
     transform: scale(1.05);
