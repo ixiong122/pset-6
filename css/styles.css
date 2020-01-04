@@ -1,110 +1,92 @@
+h1 {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 70px;
+  color:white;
+}
 body{
-    background-color: #7575a3
+    background-color: #2A2A72
+}
+#something {
+
+}
+#list ul {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+
+}
+#list ul li {
+  height: 30px;
+	margin: 3px;
+	padding: 8px;
+	font-family: Helvetica, sans-serif;
+	font-size: 16px;
+	border-radius: 8px;
+	background-color: #f5f0f0;
+	border: 1px solid #3333;
 }
 
-#box h1 {
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-#box ul{
-    margin-top: 50px;
-    padding-left: 0;
-}
-#box ul li{
-    list-style: none;
-    border: 2px solid #b5c5dd;
-    width: 80%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    height: 40px;
-    margin: 5px auto;
-    text-align: left;
-}
-#box ul li label{
-    margin: 0 auto;
-    vertical-align: middle;
-    height: 100%;
-    line-height: 40px;
-    font-size: 18px;
+#list ul li span.title {
+	float:left;
+	display:inline-block;
+	padding:5px;
 
 }
 
-#box ul li #check{
-    float: left;
-    width: 30px;
-    height: 30px;
-    margin: 5px;
-    -webkit-appearance: none;
-    border: 2px solid #b5c5dd;
-    position: relative;
-    outline: 0;
+#list ul li span.action {
+	float:right;
+  inline-block;
 }
-
-#box ul li #check:checked::after {
-    content: '\2714';
-    font-size: 20px;
-    position: absolute;
-    top: 0px;
-    left: 7px;
-    color: black;
+ul .done {
+  border-radius: 8px;
+  border-color: green;
 }
-
-#box ul li input[type='checkbox']:checked+label{
-    text-decoration: line-through;
-    color: rgba(0, 0, 0, 0.3);
-}
-#box .controllers {
-    width: 60%;
-    margin: auto;
-}
-
-#box .controllers #input{
-    width: 100%;
-    height: 30px;
-    font-size: 20px;
-    padding-left: 5px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    border: 2px solid #b5c5dd;
-    border-radius: 10px;
-}
-/* #box .controllers #input:focus {
-    outline: 0;
-
-} */
-
-#box .controllers button{
-    width: 100%;
-    background: white;
-    border: none;
-    height: 30px;
-    margin-top: 2px;
-    cursor: pointer;
-    color: white;
+#list ul li.done {
+	border-color: green;
+  border-radius: 8px;
+  border-width: medium;
+  font-color
 
 }
-/* #box .controllers button:focus{
-    outline: 0;
-} */
+.done .title{
+	text-decoration: line-through;
+  text-decoration-color: green;
+  color:green;
+}
 
-#box .controllers button:hover{
-    transform: scale(1.05);
+#list ul li a {
+	font-family: Helvetica, sans-serif;
+	font-size:14px;
+	text-decoration: none;
+	display:inline-block;
+	border-radius:8px;
+	background-color:#333333;
+	padding:5px 8px;
+	color:#fff;
 }
-#box .controllers #add{
-    background-color: #2980b9;
-    border-radius: 10px;
-}
-#box .controllers #remove {
-    background-color: #c0392b;
-    border-radius: 10px;
+#list ul li a:hover {
+	background-color:#eee;
+	color:#000;
 
 }
-#box .mycheck {
-    opacity: 1;
-    border-radius: 10px;
+#toDoInput {
+  font-size:16px;
+  font-family: Helvetica, sans-serif;
+  padding:5px 8px;
+  /* border:1px solid #ccc; */
+  border-radius:8px;
+  text-align: center;
 }
-.visual {
-    opacity: 1 !important;
-    border-radius: 10px;
+#addButton {
+  padding:5px 20px;
+  font-size:14px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  background-color:#ccc
+}
+#div {
+  width:80%;
+  margin:0 auto;
+  padding:10px;
 }

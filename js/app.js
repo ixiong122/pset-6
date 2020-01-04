@@ -1,53 +1,121 @@
-var ul = document.getElementById('list')
-var li;
-var addButton = document.getElementById('add')
-addButton.addEventListener("click",addItem)
+var list = [];
 
-function addItem(){
-  var input = document.getElementById('input')
-  var item = input.value;
-  var textNode = document.createTextNode(item)
-  do {
-    if (item == "") {
-      alert("Please enter your task.");
-      return false
-    } else {
-      li = document.createElement('li')
-      let checkbox = document.createElement('input')
-      checkbox.type = 'checkbox'
-      checkbox.setAttribute('id','check')
-      var text = document.createIMG();
-      let label = document.createElement('label')
-      ul.appendChild(label)
-      li.appendChild(checkbox)
-      label.appendChild(textNode)
-      li.appendChild(label)
-      label.appendChild(text)
-      ul.insertBefore(li, ul.childNodes[0])
-      setTimeout(()=>{
-       li.className = 'visual'},5)
-      input.value = " "
-    }
-  } while(item == "");
+function addTodo(item) {
+	var todo = item.toDoInput;
+	if(todo.value != "") {
+		list.push({"title":todo.value,"status":1, "priority":1});
+		todo.value="";
+	} else {
+		alert("Please enter a task.");
+		return false;
+	}
+  todo.focus();
+
+	displayItems();
+	return false;
+
 }
-var removeButton = document.getElementById('remove')
-removeButton.addEventListener("click",removeItem)
 
-function removeItem(){
-  li=ul.children
-  for (let index = 0; index < li.length; index++) {
-    const element = li[index];
-    while(li[index] && li[index].children[0].checked){
-     ul.removeChild(li[index])
-        }
-    }
+function todoAction(number,action) {
+	if(number != null) {
+		list[number].status = action;
+	}
+	displayItems();
 }
-  function prioritizeItem() {
-    li = ul.children
-    for (let index = 0; index < li.length; index++) {
-      const element2 = li[index];
-      while (li[index] && li[index].children[0].checked) {
 
-      }
-    }
+function remove(number) {
+	list.splice(number,1);
+	displayItems();
+}
+function whichPrioritize(number) {
+
+  var priorityClass = list[number].priority == 0 ? "highPriority" : "lowPriority";
+  alert(priorityClass);
+  if (priorityClass == "highPriority"  ) {
+    unPrioritize(number);
+    list[list.length -1 ].priority=1;
+  } else if (priorityClass == "lowPriority"  ) {
+    prioritize(number);
+    list[0].priority = 0;
   }
+}
+
+function prioritize(number) {
+  var x = list[number].title;
+  var vrt = list[number].status;
+
+
+  list.splice(number,1)
+
+	list.unshift({"title":x,"status":vrt});
+  // alert(String(list[0].title));
+  displayItems();
+    // list.push(number);
+  }
+function unPrioritize(number) {
+   var x = list[number].title;
+    var vrt = list[number].status;
+
+
+    list.splice(number,1)
+
+  	list.push({"title":x,"status":vrt});
+    // alert(String(list[0].title));
+    displayItems();
+}
+function displayItems() {
+	var start = "<ul>";
+	var listItems = "";
+	var end = "</ul>";
+
+	if(list.length > 0) {
+		for(var i=0; i < list.length; i++) {
+			var actionClass = list[i].status == 0 ? "done" : "pending";
+      var priorityClass = list[i].priority == 0 ? "highPriority" : "lowPriority";
+
+
+			var setStatus =  list[i].status==0?1:0;
+			listItems+= "<li class='"+actionClass+"'><span class='title'>"+list[i].title+"</span>"
+			listItems+= "<span class='action'><a href='javascript:void(0);' onClick='todoAction("+i+","+setStatus+");'>";
+			listItems+= list[i].status==0?"Not done":"Completed";
+			listItems+= "</a> <a href='javascript:void(0);' onClick='remove("+i+");'> X </a>";
+      listItems+= "</a> <a href='javascript:void(0);' onClick='whichPrioritize("+i+");'> ! </a>";
+			listItems+="</span></li>";
+
+		}
+	}
+	else {
+		listItems+= "<li><span class='title'>All tasks are finished!</span></li>";
+	}
+
+	document.getElementById("list").innerHTML = start+listItems+end;
+}
+
+//
+// function displayItems() {
+// 	var start = "<ul>";
+// 	var listItems = "";
+// 	var end = "</ul>";
+//
+// 	if(list.length > 0) {
+// 		for(var i=0; i < list.length; i++) {
+// 			var actionClass = list[i].status == 0 ? "done" : "pending";
+//       var priorityClass = list[i].status == 0 ? "highPriority" : "lowPriority";
+//
+//
+// 			var setStatus =  list[i].status==0?1:0;
+// 			listItems+= "<li class='"+actionClass+"'><span class='title'>"+list[i].title+"</span>"
+// 			listItems+= "<span class='action'><a href='javascript:void(0);' onClick='todoAction("+i+","+setStatus+");'>";
+// 			listItems+= list[i].status==0?"Not done":"Completed";
+// 			listItems+= "</a> <a href='javascript:void(0);' onClick='remove("+i+");'> X </a>";
+//       listItems+= "</a> <a href='javascript:void(0);' onClick='izzyPrioritize("+i+");'> ! </a>";
+// 			listItems+="</span></li>";
+//
+// 		}
+// 	}
+// 	else {
+// 		listItems+= "<li><span class='title'>All tasks are finished!</span></li>";
+// 	}
+//
+// 	document.getElementById("list").innerHTML = start+listItems+end;
+// }
