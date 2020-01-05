@@ -55,6 +55,16 @@ ul .done {
   color:green;
 }
 
+#list ul li a:active {
+  font-family: Helvetica, sans-serif;
+  font-size:14px;
+  text-decoration: none;
+  display:inline-block;
+  border-radius:8px;
+  background-color:red;
+  padding:5px 8px;
+  color:#fff;
+}
 #list ul li a {
 	font-family: Helvetica, sans-serif;
 	font-size:14px;
@@ -70,6 +80,7 @@ ul .done {
 	color:#000;
 
 }
+
 #toDoInput {
   font-size:16px;
   font-family: Helvetica, sans-serif;
