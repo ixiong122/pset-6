@@ -48,15 +48,15 @@ function whichPrioritize(number) {
 }
 
 function prioritize(number) {
-	var x = list[number].title;
-	var vrt = list[number].status;
+	var listName = list[number].title;
+	var status = list[number].status;
 
 
 	list.splice(number, 1)
 
 	list.unshift({
-		"title": x,
-		"status": vrt,
+		"title": listName,
+		"status": status,
 		"priority": 0
 	});
 
